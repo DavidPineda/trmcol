@@ -10,7 +10,8 @@ Trmcol.prototype.query = function (date, callback) {
   if (typeof date === 'function') { // Si no se especifica una fecha, usar la actual
     var d = new Date()
     d.setTime(d.getTime() + (d.getTimezoneOffset() - 300) * 60000) // Forzar hora colombiana
-    return this.query(d.toISOString().slice(0, 10).replace(/-/g, ''), date)
+    //return this.query(d.toISOString().slice(0, 10).replace(/-/g, ''), date)
+    return this.query(d.toISOString().slice(0, 10), date);
   }
 
   soap.createClient(WSDL_URL, {
